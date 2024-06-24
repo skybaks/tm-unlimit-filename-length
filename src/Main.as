@@ -42,7 +42,7 @@ CControlBase@ GetFirstChild(CControlBase@ control, const string&in name)
 {
     CControlBase@ child = null;
     CControlContainer@ container = cast<CControlContainer>(control);
-    if (control !is null)
+    if (container !is null)
     {
         for (uint i = 0; i < container.Childs.Length; ++i)
         {
