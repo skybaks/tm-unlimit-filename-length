@@ -1,4 +1,7 @@
 
+[Setting name="File dialog character limit"]
+int Setting_FileDialogCharacterLimit = 150;
+
 void Main()
 {
     bool maxLengthSet = false;
@@ -23,7 +26,7 @@ void Main()
                 );
                 if (entry !is null)
                 {
-                    entry.MaxLength = 150;
+                    entry.MaxLength = Setting_FileDialogCharacterLimit;
                     maxLengthSet = true;
                 }
             }
