@@ -5,6 +5,7 @@ int Setting_FileDialogCharacterLimit = 150;
 void Main()
 {
     bool maxLengthSet = false;
+    int lastCharLimit = Setting_FileDialogCharacterLimit;
 
     while (true)
     {
@@ -12,7 +13,10 @@ void Main()
 
         if (GetApp().ActiveMenus.Length > 0)
         {
-            if (maxLengthSet)
+            if (maxLengthSet
+                // Allow another update of the MaxLength if the user changes
+                // the settings while the dialog is open
+                && lastCharLimit == Setting_FileDialogCharacterLimit)
             {
                 continue;
             }
@@ -35,6 +39,8 @@ void Main()
         {
             maxLengthSet = false;
         }
+
+        lastCharLimit = Setting_FileDialogCharacterLimit;
     }
 }
 
